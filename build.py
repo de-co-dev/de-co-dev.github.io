@@ -96,7 +96,7 @@ LIST_PAGE = HEAD + """<main>
 
 def inline(text: str) -> str:
     text = html.escape(text, quote=False)
-    return re.sub(r"([\w.+-]+@[\w-]+\.[\w.]+)", r'<a href="mailto:\1">\1</a>', text)
+    return re.sub(r"([\w.+-]+@[\w-]+(?:\.[\w-]+)+)", r'<a href="mailto:\1">\1</a>', text)
 
 
 def to_html(md: str) -> tuple[str, str]:
